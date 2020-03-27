@@ -1,0 +1,17 @@
+{
+  "name": "hostnation3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier --write \"{app,src}/**/*\""
+  },
+  "dependencies": {
+    "maraca-app": "^0.2.8",
+    "prettier": "^2.0.2",
+    "prettier-plugin-maraca": "^0.3.5",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webfontloader": "^1.6.28"
+  }
+}
