@@ -66,4 +66,12 @@
           ],
         ],
     ],
+  pointer:
+    [
+      cursor: pointer,
+      userSelect: none,
+      WebkitUserSelect: none,
+      MozUserSelect: none,
+      msUserSelect: none,
+    ],
 ]
