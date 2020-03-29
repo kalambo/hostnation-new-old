@@ -12,7 +12,7 @@
                 (focus?, util?.colors.yellowLight, => util?.colors.light),
               padding: 6px 10px,
               border: 1px solid (focus?, util?.colors.yellowDark, => white),
-              "box-shadow": "rgba(0, 0, 0, 0.15) 0px 1px 1px inset",
+              'box-shadow': 'rgba(0, 0, 0, 0.15) 0px 1px 1px inset',
             ],
           placeholder:=?,
           value:=?,
@@ -30,7 +30,7 @@
                   (focus?, util?.colors.yellowLight, => util?.colors.light),
                 padding: 6px 10px,
                 border: 1px solid (focus?, util?.colors.yellowDark, => white),
-                "box-shadow": "rgba(0, 0, 0, 0.15) 0px 1px 1px inset",
+                'box-shadow': 'rgba(0, 0, 0, 0.15) 0px 1px 1px inset',
                 cursor: text,
                 display: block,
               ],
@@ -41,8 +41,8 @@
                 style:
                   [
                     visibility: hidden,
-                    "white-space": "pre-wrap",
-                    "word-break": "break-word",
+                    'white-space': 'pre-wrap',
+                    'word-break': 'break-word',
                     display: block,
                     overflow: hidden,
                   ],
@@ -79,9 +79,9 @@
           base: ,
           [
             focus: ,
-            rect: base?,
-            click? | true -> open?,
-            click? | true -> freeze?,
+            box: base?,
+            mouse? | (mouse?.left = down, true, => open?) -> open?,
+            mouse? | (mouse?.left = down, true, => freeze?) -> freeze?,
             freeze? | (freeze?, open?) -> open?,
             tabIndex: 0,
             style:
@@ -91,7 +91,7 @@
                   (focus?, util?.colors.yellowLight, => util?.colors.light),
                 padding: 6px 10px,
                 border: 1px solid (focus?, util?.colors.yellowDark, => white),
-                "box-shadow": "rgba(0, 0, 0, 0.15) 0px 1px 1px inset",
+                'box-shadow': 'rgba(0, 0, 0, 0.15) 0px 1px 1px inset',
                 outline: none,
                 : util?.pointer,
               ],
@@ -100,7 +100,7 @@
                 style: [float: right, padding: 4px 0 4px 16px, width: 32px],
                 util?.icons.down,
               ],
-              [style: ["margin-right": 32px], value?],
+              [style: ['margin-right': 32px], value?],
               [style: [display: table, clear: both]],
               (
                 open?,
@@ -116,11 +116,15 @@
                         .[
                           text=>>
                             {
-                              click: ,
-                              click? | text? -> value?,
-                              click? | "" -> freeze?,
+                              mouse: ,
+                              mouse? | (mouse?.left = down, text?, => value?)
+                                ->
+                                value?,
+                              mouse? | (mouse?.left = down).[true: , : freeze?]
+                                ->
+                                freeze?,
                               label?
-                              .[text:=?, click:=?, selected: value? = text?],
+                              .[text:=?, mouse:=?, selected: value? = text?],
                             },
                         ],
                     ],
@@ -134,8 +138,8 @@
     [
       [value:=, text:=]=>
         {
-          click: ,
-          click? | !value? -> value?,
+          mouse: ,
+          mouse? | (mouse?.left = down).[true: !value?, : value?] -> value?,
           [
             focus: ,
             tabIndex: 0,
@@ -144,7 +148,7 @@
             .[
               type: tick,
               text:=?,
-              click:=?,
+              mouse:=?,
               focus:=?,
               active: focus?,
               selected: value?,
@@ -160,21 +164,41 @@
           options?
           .[
             focus: ,
+            stopKeys: [ArrowUp, ArrowLeft, ArrowDown, ArrowRight],
+            keys?
+              |
+              options?
+              .(
+                (
+                  active?
+                    +
+                    {
+                      ({keys?.ArrowDown = down, keys?.ArrowRight = down}, 1),
+                      ({keys?.ArrowUp = down, keys?.ArrowLeft = down}, -1),
+                      0,
+                    },
+                )
+                  %
+                  #options?,
+              )
+              ->
+              value?,
             focus? | {options?.[v=> i=> : [(v? = value?, i?)]].1, 1} -> active?,
+            value? | {options?.[v=> i=> : [(v? = value?, i?)]].1, 1} -> active?,
             tabIndex: 0,
             style: [outline: none],
             text=> i=>
               {
-                click: ,
-                click? | text? -> value?,
-                click? | i? -> active?,
+                mouse: ,
+                mouse? | (mouse?.left = down, text?, => value?) -> value?,
+                mouse? | (mouse?.left = down, i?, => active?) -> active?,
                 [
-                  style: ["padding-top": (i? ! 1, 10px)],
+                  style: ['padding-top': (i? ! 1, 10px)],
                   option?
                   .[
                     type: disc,
                     text:=?,
-                    click:=?,
+                    mouse:=?,
                     focus:=?,
                     active: active? = i?,
                     selected: value? = text?,

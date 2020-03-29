@@ -34,9 +34,9 @@
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
 "@types/node@*":
-  version "12.12.31"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.31.tgz#d6b4f9645fee17f11319b508fb1001797425da51"
-  integrity sha512-T+wnJno8uh27G9c+1T+a1/WYCHzLeDqtsGJkoEdSp2X8RTh3oOCZQcUnjAx90CS8cmmADX51O0FI/tu9s0yssg==
+  version "13.9.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.9.5.tgz#59738bf30b31aea1faa2df7f4a5f55613750cf00"
+  integrity sha512-hkzMMD3xu6BrJpGVLeQ3htQQNAcOrJjX7WFmtK8zWQpz2UJf13LCFF2ALA7c9OVdvc2vQJeDdjfR35M0sBCxvw==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -1650,9 +1650,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.10.0.tgz#01f5263aee921c6a54fb91667f08f4155ce169eb"
-  integrity sha512-4eyLK6s6lH32nOvLLwlIOnr9zrL8Sm+OvW4pVTJNoXeGzYIkHVf+pADQi+OJ0E67hiuSLezPVPyBcIZO50TmmQ==
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.11.0.tgz#afa14f08ba12a52963140fe43212658897bc0ecb"
+  integrity sha512-KZm0V+ll8PfBrKwMzdo5D13b1bur9Iq9Zd/RMmAoQQcl2PxxFml8cxXPaaPYVbV0RjNjq1CU7zIzAOqtUPudmA==
   dependencies:
     debug "^3.0.0"
 
@@ -2621,18 +2621,18 @@ maraca-loader@^0.2.3:
     maraca "*"
 
 maraca-render@^0.6.0:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/maraca-render/-/maraca-render-0.6.1.tgz#956de9986894a33a3283943251b29a89904c8771"
-  integrity sha512-CkDTyWQcgjm78gxFpm4lwiD2k5bIRDCXwbGPdJa/BEzFs70V6a+drugq39De3NKjO30vQ99T7p0SBu9BKeKXOg==
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/maraca-render/-/maraca-render-0.6.2.tgz#f263856127aed47b286745b67389a7eb98954ed6"
+  integrity sha512-Wvr9XnaEv/eMDE9ZCSZ8icjKqAFaq9xXTJKCMo2JgQI31iac80VLbOgU9p6PMqn68ox8F/5d4VkWjzkqZKvDWg==
   dependencies:
     "@juggle/resize-observer" "^3.1.2"
     lodash.throttle "^4.1.1"
-    maraca "^0.6.3"
+    maraca "^0.6.4"
 
-maraca@*, maraca@^0.6.2, maraca@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/maraca/-/maraca-0.6.3.tgz#a3286088b4297054ab288b412a080d967ce5e117"
-  integrity sha512-koesA8/kAedcjP17bn3wbjcm/pFVMIyVxl0mCnwCDX8TxzAnpOD2OkN/OhhFLfVnOLN3bBGgJ7Yd21hiEcaSGA==
+maraca@*, maraca@^0.6.2, maraca@^0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/maraca/-/maraca-0.6.4.tgz#7d929aa82f458f1e2dc520cfc562fdea498df075"
+  integrity sha512-kBwAJqJNVNYXd/c9+Ot+ENKqTl3EoW4lkFcW065vez/UjI9keW/aKTlBmQmnqpx4zpy6IAI6A0r39jGI46KtJA==
   dependencies:
     ohm-js "^0.14.0"
 
@@ -3430,12 +3430,12 @@ postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.23, postcss@^7.0.5, postcss@^7.0.
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-prettier-plugin-maraca@^0.3.5:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-maraca/-/prettier-plugin-maraca-0.3.6.tgz#6bdc6e63cc91ea7374918d509f4e98ea8b38d655"
-  integrity sha512-ICHH3qTVSYFpd9FqK7iecjRP+KdElc6Zbik0gRD3QLgyPMuygM22rKtHUTL/i17RRnRVdNpDmTWfHeYmIZsSNA==
+prettier-plugin-maraca@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-maraca/-/prettier-plugin-maraca-0.3.7.tgz#a6c672a7b5367bc97ad550f2066cca8f363d691f"
+  integrity sha512-8jywf3g4eRDqvvlF8moLaMJ//fC6AfzweV70NQNrpvRvvUHIg0ZSOJpzDtaGRKLE/NdfzYl50ywB/ByZvbAZOQ==
   dependencies:
-    maraca "^0.6.3"
+    maraca "^0.6.4"
     prettier "^2.0.2"
 
 prettier@^2.0.2:

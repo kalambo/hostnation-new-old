@@ -10,18 +10,18 @@
         : _,
         style:
           [
-            "font-size": 16px,
-            "line-height": 1.5,
-            "font-family": "Lato, sans-serif",
+            'font-size': 16px,
+            'line-height': 1.5,
+            'font-family': 'Lato, sans-serif',
             color: util?.colors.dark,
             boxShadow:
               (
                 small?,
-                "0 2px 25px rgba(0,0,0,0.5)",
-                => "0 2px 20px 5px rgba(0,0,0,0.4)",
+                '0 2px 25px rgba(0,0,0,0.5)',
+                => '0 2px 20px 5px rgba(0,0,0,0.4)',
               ),
             position: fixed,
-            "z-index": 300,
+            'z-index': 300,
             overflow: auto,
             :
               (
@@ -58,7 +58,7 @@
             visibility: (height? = 0, hidden, => visible),
             height: {height?}px,
           ],
-        [rect: inner?, content?],
+        [box: inner?, content?],
       ],
     },
 ]
