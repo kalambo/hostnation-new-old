@@ -12,7 +12,7 @@
     "proseWrap": "always"
   },
   "dependencies": {
-    "maraca-app": "^0.2.8",
+    "maraca-app": "^0.2.9",
     "prettier": "^2.0.2",
     "prettier-plugin-maraca": "^0.3.7",
     "ts-loader": "^6.2.2",

@@ -99,7 +99,7 @@
             ],
             {
               value: ,
-              input?
+              inputs?
               .check
               .[value:=?, text: 'I believe that I fit the above criteria'],
             },
@@ -144,7 +144,7 @@
                 [style: [float: left, width: 100px], Name],
                 [
                   style: ['margin-left': 100px],
-                  input?.text.[value:=?, placeholder: 'First name'],
+                  inputs?.text.[value:=?, placeholder: 'First name'],
                 ],
                 [style: [display: table, clear: both]],
               ],
@@ -155,7 +155,7 @@
                 [style: [float: left, width: 100px], Sex],
                 [
                   style: ['margin-left': 100px],
-                  input?
+                  inputs?
                   .radio
                   .[value:=?, options: [Male, Female, Prefer not to say]],
                 ],
@@ -168,7 +168,7 @@
                 [style: [float: left, width: 100px], Sex],
                 [
                   style: ['margin-left': 100px],
-                  input?
+                  inputs?
                   .select
                   .[
                     value:=?,
@@ -184,7 +184,7 @@
               value: ,
               [
                 [style: [float: left, width: 100px], Test],
-                [style: ['margin-left': 100px], input?.textarea.[value:=?]],
+                [style: ['margin-left': 100px], inputs?.textarea.[value:=?]],
                 [style: [display: table, clear: both]],
               ],
             },
