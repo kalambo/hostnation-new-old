@@ -1,10 +1,11 @@
 [
-  [text:=, mouse:=, selected:=]=>
+  [text:=, mouse:=, active:=, selected:=]=>
     [
       mouse:=?,
       style:
         [
-          background: (mouse?, util?.colors.yellowLight, => util?.colors.light),
+          background: (active?, util?.colors.yellowLight, => util?.colors.light)
+          ,
           fontWeight: (selected?, bold),
           : util?.pointer,
         ],

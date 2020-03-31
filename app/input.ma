@@ -79,10 +79,18 @@
           base: ,
           [
             focus: ,
-            box: base?,
+            box: base?,,
+
             mouse? | (mouse?.left = down, true, => open?) -> open?,
+            keys? | (keys?.Enter = down, true, => open?) -> open?,,
+
             mouse? | (mouse?.left = down, true, => freeze?) -> freeze?,
-            freeze? | (freeze?, open?) -> open?,
+            keys? | (keys?.Enter = down, true, => freeze?) -> freeze?,,
+
+            keys? | (keys?.Escape = down).[true: , : freeze?] -> freeze?,,
+
+            freeze? | (freeze?, open?) -> open?,,
+
             tabIndex: 0,
             style:
               [
@@ -109,25 +117,86 @@
                   screen:=?,
                   base:=?,
                   content:
-                    [
-                      style: [background: util?.colors.light, padding: 8px 0],
-                      :
-                        [hello, there, another, person]
-                        .[
-                          text=>>
-                            {
-                              mouse: ,
-                              mouse? | (mouse?.left = down, text?, => value?)
-                                ->
-                                value?,
-                              mouse? | (mouse?.left = down).[true: , : freeze?]
-                                ->
-                                freeze?,
-                              label?
-                              .[text:=?, mouse:=?, selected: value? = text?],
-                            },
-                        ],
-                    ],
+                    {
+                      active:
+                        once?.{options?.[v=> i=> : [(v? = value?, i?)]].1, 1},
+                      onUp: delay?.400,
+                      [
+                        style: [background: util?.colors.light, padding: 8px 0],
+                        keys?
+                          |
+                          (
+                            active?
+                              +
+                              {
+                                (
+                                  {
+                                    keys?.ArrowDown = down,
+                                    keys?.ArrowRight = down,
+                                  },
+                                  1,
+                                ),
+                                (
+                                  {keys?.ArrowUp = down, keys?.ArrowLeft = down}
+                                  ,
+                                  -1,
+                                ),
+                                0,
+                              },
+                          )
+                            %
+                            #options?
+                          ->
+                          active?,
+                        keys?
+                          |
+                          (keys?.Enter = down, options?.active?, => value?)
+                          ->
+                          value?,
+                        keys? | (keys?.Enter = down).[true: , : freeze?]
+                          ->
+                          freeze?,
+                        :
+                          options?
+                          .[
+                            text=> i=>
+                              {
+                                mouse: ,
+                                mouse? | (mouse?, i?, => active?) -> active?,
+                                mouse?
+                                  |
+                                  (
+                                    {
+                                      mouse?.left = down,
+                                      (onUp?, mouse?.left = up),
+                                    },
+                                    text?,
+                                    => value?,
+                                  )
+                                  ->
+                                  value?,
+                                mouse?
+                                  |
+                                  (
+                                    {
+                                      mouse?.left = down,
+                                      (onUp?, mouse?.left = up),
+                                    },
+                                  )
+                                  .[true: , : freeze?]
+                                  ->
+                                  freeze?,
+                                label?
+                                .[
+                                  text:=?,
+                                  mouse:=?,
+                                  active: active? = i?,
+                                  selected: value? = text?,
+                                ],
+                              },
+                          ],
+                      ],
+                    },
                 ],
               ),
             ],
